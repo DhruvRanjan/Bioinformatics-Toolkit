@@ -167,12 +167,12 @@ class AlignmentPage(Gtk.Box):
     def make_graph_button_matrices_clicked(self,widget):
 
         RSeqGraphs2.plotMatrixScores(int(self.score_text.get_text()), self.align1_text.get_text(),
-                                  self.align2_text.get_text())
+                                  self.align2_text.get_text(), self.affine_gap_alignment_button.get_active())
 
     def make_graph_button_clicked(self, widget):
 
         RSeqGraphs2.plotSeqScores(int(self.score_text.get_text()), self.align1_text.get_text(),
-                                  self.align2_text.get_text(), self.scoreDict)
+                                  self.align2_text.get_text(), self.scoreDict,self.affine_gap_alignment_button.get_active())
 
     def align_button_clicked(self, widget):
 

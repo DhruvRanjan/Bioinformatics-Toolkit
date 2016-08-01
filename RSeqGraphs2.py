@@ -71,20 +71,56 @@ def runFromFileTest():
     plotFunc(testData_R)
 
 
-def plotSeqScores(score, seq1, seq2, scoreDict):
+def plotSeqScores(score, seq1, seq2, scoreDict, isAffine):
+
+    print isAffine
+    if isAffine:
+        plotSeqScoresAffine(score,seq1,seq2,scoreDict)
+    else:
+        print scoreDict
+        print seq1
+        print seq2
+        # generate a list with all iterative alignment scores of seq1, seq2
+        totalScore = 0
+        scoreList = [totalScore]
+        for i in xrange(len(seq1)):
+            currentSeq1 = seq1[i]
+            currentSeq2 = seq2[i]
+            if (currentSeq1 == '-' or currentSeq2 == '-'):
+                currentScore = -5
+            else:
+                currentScore = scoreDict[(currentSeq1, currentSeq2)]
+            totalScore += currentScore
+            scoreList.append(totalScore)
+        indexList = range(0, len(scoreList))
+        scoreData = pd.DataFrame({"Position": indexList, "Score": scoreList})
+        print scoreData
+        fileName = "Scripts/PlotScores.R"
+        plotFunction = robjects.r(open(fileName).read())
+        plot = plotFunction(scoreData)
+        print(plot)
+
+def plotSeqScoresAffine(score, seq1, seq2, scoreDict):
+
     print scoreDict
     print seq1
     print seq2
     # generate a list with all iterative alignment scores of seq1, seq2
     totalScore = 0
     scoreList = [totalScore]
+    gapOpen = False
     for i in xrange(len(seq1)):
         currentSeq1 = seq1[i]
         currentSeq2 = seq2[i]
         if (currentSeq1 == '-' or currentSeq2 == '-'):
-            currentScore = -5
+            if gapOpen:
+                currentScore = -1
+            else:
+                currentScore = -11
+                gapOpen = True
         else:
             currentScore = scoreDict[(currentSeq1, currentSeq2)]
+            gapOpen = False
         totalScore += currentScore
         scoreList.append(totalScore)
     indexList = range(0, len(scoreList))
@@ -96,44 +132,95 @@ def plotSeqScores(score, seq1, seq2, scoreDict):
     print(plot)
 
 
-def plotMatrixScores(score, seq1, seq2):
-    blosum45 = "matrices/blosum45.txt"
-    blosum62 = "matrices/blosum62.txt"
-    blosum90 = "matrices/blosum90.txt"
-    pam30 = "matrices/pam30.txt"
-    pam70 = "matrices/pam70.txt"
-    pam250 = "matrices/pam250.txt"
-    matrixPathList = [blosum45, blosum62, blosum90, pam30, pam70, pam250]
-    matrixNameList = ["blosum45", "blosum62", "blosum90", "pam30", "pam70", "pam250"]
-    allIndices = []
-    allScores = []
-    allMatrices = []
-    for j in xrange(len(matrixNameList)):
-        scoreDict = makeScoringDict(matrixPathList[j])
-        totalScore = 0
-        allScores.append(totalScore)
-        allMatrices.append(matrixNameList[j])
-        for i in xrange(len(seq1)):
-            currentSeq1 = seq1[i]
-            currentSeq2 = seq2[i]
-            if (currentSeq1 == '-' or currentSeq2 == '-'):
-                currentScore = -5
-            else:
-                currentScore = scoreDict[(currentSeq1, currentSeq2)]
-            totalScore += currentScore
+def plotMatrixScores(score, seq1, seq2, isAffine):
+
+    if isAffine:
+        plotMatrixScoresAffine(score, seq1, seq2)
+    else:
+        blosum45 = "matrices/blosum45.txt"
+        blosum62 = "matrices/blosum62.txt"
+        blosum90 = "matrices/blosum90.txt"
+        pam30 = "matrices/pam30.txt"
+        pam70 = "matrices/pam70.txt"
+        pam250 = "matrices/pam250.txt"
+        matrixPathList = [blosum45, blosum62, blosum90, pam30, pam70, pam250]
+        matrixNameList = ["blosum45", "blosum62", "blosum90", "pam30", "pam70", "pam250"]
+        allIndices = []
+        allScores = []
+        allMatrices = []
+        for j in xrange(len(matrixNameList)):
+            scoreDict = makeScoringDict(matrixPathList[j])
+            totalScore = 0
             allScores.append(totalScore)
             allMatrices.append(matrixNameList[j])
-        indexList = range(0, len(seq1) + 1)
-        allIndices += indexList
-    print(len(allIndices))
-    print(len(allScores))
-    print(len(allMatrices))
-    scoreData = pd.DataFrame({"Position": allIndices, "Score": allScores, "Matrix": allMatrices})
-    print scoreData
-    fileName = "Scripts/PlotMatrixScores.R"
-    plotFunction = robjects.r(open(fileName).read())
-    plot = plotFunction(scoreData)
-    print(plot)
+            for i in xrange(len(seq1)):
+                currentSeq1 = seq1[i]
+                currentSeq2 = seq2[i]
+                if (currentSeq1 == '-' or currentSeq2 == '-'):
+                    currentScore = -5
+                else:
+                    currentScore = scoreDict[(currentSeq1, currentSeq2)]
+                totalScore += currentScore
+                allScores.append(totalScore)
+                allMatrices.append(matrixNameList[j])
+            indexList = range(0, len(seq1) + 1)
+            allIndices += indexList
+        print(len(allIndices))
+        print(len(allScores))
+        print(len(allMatrices))
+        scoreData = pd.DataFrame({"Position": allIndices, "Score": allScores, "Matrix": allMatrices})
+        print scoreData
+        fileName = "Scripts/PlotMatrixScores.R"
+        plotFunction = robjects.r(open(fileName).read())
+        plot = plotFunction(scoreData)
+        print(plot)
+
+def plotMatrixScoresAffine(score, seq1, seq2):
+
+        blosum45 = "matrices/blosum45.txt"
+        blosum62 = "matrices/blosum62.txt"
+        blosum90 = "matrices/blosum90.txt"
+        pam30 = "matrices/pam30.txt"
+        pam70 = "matrices/pam70.txt"
+        pam250 = "matrices/pam250.txt"
+        matrixPathList = [blosum45, blosum62, blosum90, pam30, pam70, pam250]
+        matrixNameList = ["blosum45", "blosum62", "blosum90", "pam30", "pam70", "pam250"]
+        allIndices = []
+        allScores = []
+        allMatrices = []
+        for j in xrange(len(matrixNameList)):
+            scoreDict = makeScoringDict(matrixPathList[j])
+            totalScore = 0
+            allScores.append(totalScore)
+            allMatrices.append(matrixNameList[j])
+            gapOpen = False
+            for i in xrange(len(seq1)):
+                currentSeq1 = seq1[i]
+                currentSeq2 = seq2[i]
+                if (currentSeq1 == '-' or currentSeq2 == '-'):
+                    if gapOpen:
+                        currentScore = -1
+                    else:
+                        currentScore = -11
+                        gapOpen = True
+                else:
+                    currentScore = scoreDict[(currentSeq1, currentSeq2)]
+                    gapOpen = False
+                totalScore += currentScore
+                allScores.append(totalScore)
+                allMatrices.append(matrixNameList[j])
+            indexList = range(0, len(seq1) + 1)
+            allIndices += indexList
+        print(len(allIndices))
+        print(len(allScores))
+        print(len(allMatrices))
+        scoreData = pd.DataFrame({"Position": allIndices, "Score": allScores, "Matrix": allMatrices})
+        print scoreData
+        fileName = "Scripts/PlotMatrixScores.R"
+        plotFunction = robjects.r(open(fileName).read())
+        plot = plotFunction(scoreData)
+        print(plot)
+
 
 def makeScoringDict(matrix_input):
     (keys, scoringMatrix) = MatrixParser.importMatrix(matrix_input)
