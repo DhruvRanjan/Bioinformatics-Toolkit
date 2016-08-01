@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e418365-b3f9-4446-9178-a05d0ff66ab0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RSeqGraphs2.py" afterPath="$PROJECT_DIR$/RSeqGraphs2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/FittingAlignment.py" afterPath="$PROJECT_DIR$/Scripts/FittingAlignment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/GlobalAlignment.py" afterPath="$PROJECT_DIR$/Scripts/GlobalAlignment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/LocalAlignment.py" afterPath="$PROJECT_DIR$/Scripts/LocalAlignment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Scripts/OverlapAlignment.py" afterPath="$PROJECT_DIR$/Scripts/OverlapAlignment.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SequenceAlignment.py" afterPath="$PROJECT_DIR$/SequenceAlignment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <ignored path="BioinformaticsToolkit.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -41,8 +44,8 @@
       <file leaf-file-name="SequenceAlignment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SequenceAlignment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+            <state relative-caret-position="410">
+              <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
               <folding>
                 <element signature="e#36#45#0" expanded="true" />
               </folding>
@@ -50,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RSeqGraphs2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RSeqGraphs2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RSeqGraphs2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
+            <state relative-caret-position="380">
+              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -62,11 +65,45 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="GlobalAlignment.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/GlobalAlignment.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+              <folding>
+                <element signature="e#189#208#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FittingAlignment.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/FittingAlignment.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalAlignment.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Scripts/LocalAlignment.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="OverlapAlignment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Scripts/OverlapAlignment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
+            <state relative-caret-position="174">
+              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -81,30 +118,6 @@
               <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FittingAlignment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/FittingAlignment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GlobalAlignment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Scripts/GlobalAlignment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-98">
-              <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-              <folding>
-                <element signature="e#189#208#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,21 +143,21 @@
       <list>
         <option value="$PROJECT_DIR$/../fundamentalsOfBioinformatics/code/hw1.py" />
         <option value="$PROJECT_DIR$/Scripts/MatrixParser.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/RSeqGraphs.py" />
-        <option value="$PROJECT_DIR$/Scripts/GlobalAlignment.py" />
         <option value="$PROJECT_DIR$/Scripts/AffineGapAlignment.py" />
-        <option value="$PROJECT_DIR$/Scripts/LocalAlignment.py" />
         <option value="$PROJECT_DIR$/matrices/blosum62.txt" />
+        <option value="$PROJECT_DIR$/RSeqGraphs2.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/Scripts/GlobalAlignment.py" />
         <option value="$PROJECT_DIR$/Scripts/FittingAlignment.py" />
+        <option value="$PROJECT_DIR$/Scripts/LocalAlignment.py" />
         <option value="$PROJECT_DIR$/Scripts/OverlapAlignment.py" />
         <option value="$PROJECT_DIR$/SequenceAlignment.py" />
-        <option value="$PROJECT_DIR$/RSeqGraphs2.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="502" />
+    <option name="x" value="445" />
     <option name="width" value="1421" />
     <option name="height" value="1040" />
   </component>
@@ -451,7 +464,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="502" y="0" width="1421" height="1040" extended-state="0" />
+    <frame x="445" y="0" width="1421" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1430605" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -808,16 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/LocalAlignment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/matrices/blosum45.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -831,26 +834,6 @@
         <state relative-caret-position="204">
           <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/GlobalAlignment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
-          <folding>
-            <element signature="e#189#208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/FittingAlignment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -878,16 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Scripts/OverlapAlignment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="64" column="16" selection-start-line="64" selection-start-column="16" selection-end-line="64" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Scripts/AffineGapAlignment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1339">
@@ -898,10 +871,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RSeqGraphs2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/GlobalAlignment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding>
+            <element signature="e#189#208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/FittingAlignment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="45" column="24" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/LocalAlignment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Scripts/OverlapAlignment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SequenceAlignment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+        <state relative-caret-position="410">
+          <caret line="176" column="49" selection-start-line="176" selection-start-column="49" selection-end-line="176" selection-end-column="49" />
           <folding>
             <element signature="e#36#45#0" expanded="true" />
           </folding>
@@ -910,19 +931,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RSeqGraphs2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="119" column="30" selection-start-line="119" selection-start-column="30" selection-end-line="119" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

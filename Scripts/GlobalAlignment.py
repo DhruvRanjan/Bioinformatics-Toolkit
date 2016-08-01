@@ -37,13 +37,13 @@ def getSolution(suffix1, suffix2, indelCost, scoringMatrix, lookupDict):
     return (solution, lookupDict)
 
 
-def globalAlignmentWrapper(fileName, matrixName):
+def globalAlignmentWrapper(fileName, matrixName, gap_cost):
     matrix_input = "matrices/" + matrixName.lower() + ".txt"
     (keys, scoringMatrix) = MatrixParser.importMatrix(matrix_input)
     contents = open(fileName).readlines()
     s = contents[0].strip()
     t = contents[1].strip()
-    indelCost = -5
+    indelCost = gap_cost
     lookupDict = {}  # Used for memoization.
     scoringMatrixDict = {}  # dict mapping amino acid pair to blosum62 score.
     # seems easier than using lists

@@ -43,13 +43,13 @@ def localAlignment(s, t, indelCost, scoringMatrixDict, lookupDict, best):
 
 
 # localAlignmentWrapper("texts\hw6\localAlignment.txt")
-def localAlignmentWrapper(fileName, matrixName):
+def localAlignmentWrapper(fileName, matrixName, gap_cost):
     matrix_input = "matrices/" + matrixName.lower() + ".txt"
     (keys, scoringMatrix) = MatrixParser.importMatrix(matrix_input)
     contents = open(fileName).readlines()
     s = contents[0].strip()
     t = contents[1].strip()
-    indelCost = -5
+    indelCost = gap_cost
     backtrack = []
     lookupDict = {}  # Used for memoization.
     scoringMatrixDict = {}  # dict mapping amino acid pair to blosum62 score.

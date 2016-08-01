@@ -80,6 +80,7 @@ class MainWindow(Gtk.Window):
         self.notebook.append_page(new_tab, Gtk.Label("Sequence Alignment"))'''
         self.notebook.set_current_page(1)
 
+
 window = MainWindow()
 window.connect("delete-event", Gtk.main_quit)
 window.show_all()

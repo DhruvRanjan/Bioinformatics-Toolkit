@@ -36,13 +36,13 @@ def overlapAlignment(s, t, matchScore, mismatchCost, indelCost, scoringMatrixDic
     return (best, answers[bestAlignmentIndex])
 
 
-def overlapAlignmentWrapper(fileName, matrixName):
+def overlapAlignmentWrapper(fileName, matrixName, gap_cost):
     matrix_input = "matrices/" + matrixName.lower() + ".txt"
     (keys, scoringMatrix) = MatrixParser.importMatrix(matrix_input)
     contents = open(fileName).readlines()
     s = contents[0].strip()
     t = contents[1].strip()
-    indelCost = -5
+    indelCost = gap_cost
     matchScore = 1
     mismatchCost = -2
     lookupDict = {}

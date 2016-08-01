@@ -18,6 +18,7 @@ class AlignmentPage(Gtk.Box):
         self.main_app_window = main_app_window
         self.file_name = ""
         self.scoreDict = ""
+        self.gap_cost = -5
         Gtk.Box.__init__(self)
         self.set_border_width(10)
         self.set_orientation(Gtk.Orientation.VERTICAL)
@@ -157,22 +158,34 @@ class AlignmentPage(Gtk.Box):
 
         graph_button_matrices = Gtk.Button(label="Generate Matrix Graph")
         graph_button_matrices.connect("clicked", self.make_graph_button_matrices_clicked)
-        alignment_grid.attach_next_to(graph_button_matrices, graph_button, Gtk.PositionType.RIGHT,1,1)
+        alignment_grid.attach_next_to(graph_button_matrices, graph_button, Gtk.PositionType.RIGHT, 1, 1)
 
-        # Add button to edit gap costs
+        # Add spin button to edit gap costs
 
+        gap_cost_frame = Gtk.Frame()
+        gap_cost_frame.set_label("Gap Cost")
+        gap_cost_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        gap_cost_frame.add(gap_cost_box)
+        alignment_grid.attach_next_to(gap_cost_frame, graph_button_matrices, Gtk.PositionType.RIGHT, 1, 1)
+        gap_cost_adjuster = Gtk.Adjustment(-5, -30, -5, 1)
+        gap_cost_incrementer = Gtk.SpinButton()
+        gap_cost_incrementer.set_adjustment(gap_cost_adjuster)
+        gap_cost_incrementer.connect("value-changed", self.update_gap_cost)
+        gap_cost_box.pack_start(gap_cost_incrementer, True, True, 5)
 
+    def update_gap_cost(self, widget):
+        self.gap_cost = widget.get_value_as_int()
 
-
-    def make_graph_button_matrices_clicked(self,widget):
+    def make_graph_button_matrices_clicked(self, widget):
 
         RSeqGraphs2.plotMatrixScores(int(self.score_text.get_text()), self.align1_text.get_text(),
-                                  self.align2_text.get_text(), self.affine_gap_alignment_button.get_active())
+                                     self.align2_text.get_text(), self.affine_gap_alignment_button.get_active())
 
     def make_graph_button_clicked(self, widget):
 
         RSeqGraphs2.plotSeqScores(int(self.score_text.get_text()), self.align1_text.get_text(),
-                                  self.align2_text.get_text(), self.scoreDict,self.affine_gap_alignment_button.get_active())
+                                  self.align2_text.get_text(), self.scoreDict,
+                                  self.affine_gap_alignment_button.get_active())
 
     def align_button_clicked(self, widget):
 
@@ -186,13 +199,13 @@ class AlignmentPage(Gtk.Box):
         # determine selected alignment method
         scoreDict = {}
         if self.global_alignment_button.get_active():
-            score, seq1, seq2, scoreDict = GlobalAlignment.globalAlignmentWrapper(self.file_name, selected_matrix)
+            score, seq1, seq2, scoreDict = GlobalAlignment.globalAlignmentWrapper(self.file_name, selected_matrix,self.gap_cost)
         elif self.local_alignment_button.get_active():
-            score, seq1, seq2, scoreDict = LocalAlignment.localAlignmentWrapper(self.file_name, selected_matrix)
+            score, seq1, seq2, scoreDict = LocalAlignment.localAlignmentWrapper(self.file_name, selected_matrix,self.gap_cost)
         elif self.fitting_alignment_button.get_active():
-            score, seq1, seq2, scoreDict = FittingAlignment.fittingAlignmentWrapper(self.file_name, selected_matrix)
+            score, seq1, seq2, scoreDict = FittingAlignment.fittingAlignmentWrapper(self.file_name, selected_matrix,self.gap_cost)
         elif self.overlap_alignment_button.get_active():
-            score, seq1, seq2, scoreDict = OverlapAlignment.overlapAlignmentWrapper(self.file_name, selected_matrix)
+            score, seq1, seq2, scoreDict = OverlapAlignment.overlapAlignmentWrapper(self.file_name, selected_matrix,self.gap_cost)
         elif self.affine_gap_alignment_button.get_active():
             score, seq1, seq2, scoreDict = AffineGapAlignment.affineGapAlignmentWrapper(self.file_name, selected_matrix)
         self.score_text.set_text(str(score))

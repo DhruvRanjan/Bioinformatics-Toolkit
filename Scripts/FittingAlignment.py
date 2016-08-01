@@ -37,13 +37,13 @@ def getSolution4(suffix1, suffix2, matchScore, mismatchCost, indelCost, scoringM
     return (solution, lookupDict)
 
 
-def fittingAlignmentWrapper(fileName, matrixName):
+def fittingAlignmentWrapper(fileName, matrixName, gap_cost):
     matrix_input = "matrices/" + matrixName.lower() + ".txt"
     (keys, scoringMatrix) = MatrixParser.importMatrix(matrix_input)
     contents = open(fileName).readlines()
     s = contents[0].strip()
     t = contents[1].strip()
-    indelCost = -5
+    indelCost = gap_cost
     matchScore = 1
     mismatchCost = -1
     lookupDict = {}
