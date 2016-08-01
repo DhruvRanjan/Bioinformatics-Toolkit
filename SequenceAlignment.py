@@ -192,7 +192,7 @@ class AlignmentPage(Gtk.Box):
         elif self.fitting_alignment_button.get_active():
             score, seq1, seq2, scoreDict = FittingAlignment.fittingAlignmentWrapper(self.file_name, selected_matrix)
         elif self.overlap_alignment_button.get_active():
-            score, seq1, seq2 = OverlapAlignment.overlapAlignmentWrapper(self.file_name)
+            score, seq1, seq2, scoreDict = OverlapAlignment.overlapAlignmentWrapper(self.file_name, selected_matrix)
         elif self.affine_gap_alignment_button.get_active():
             score, seq1, seq2, scoreDict = AffineGapAlignment.affineGapAlignmentWrapper(self.file_name, selected_matrix)
         self.score_text.set_text(str(score))
